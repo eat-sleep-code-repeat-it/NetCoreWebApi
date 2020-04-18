@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -31,10 +32,8 @@ namespace NetCoreWebApi
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            // Add Sample Book Chapters Repository
-            IBookChaptersRepository repo = new SampleBookChaptersRepository();
-            repo.InitAsync().Wait();
-            services.AddSingleton<IBookChaptersRepository>(repo);
+            services.AddDbContext<BooksContext>(opt => opt.UseSqlite("Data Source=books.db"));
+            services.AddScoped<IBookChaptersRepository, BookChaptersRepository>();
 
             services.AddSwaggerGen(c =>
             {
