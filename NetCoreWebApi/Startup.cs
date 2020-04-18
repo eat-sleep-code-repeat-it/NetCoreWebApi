@@ -32,7 +32,8 @@ namespace NetCoreWebApi
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<BooksContext>(opt => opt.UseSqlite("Data Source=books.db"));
+            // services.AddDbContext<BooksContext>(opt => opt.UseSqlite("Data Source=books.db"));
+            services.AddDbContext<BooksContext>(opt => opt.UseInMemoryDatabase("books"));
             services.AddScoped<IBookChaptersRepository, BookChaptersRepository>();
 
             services.AddSwaggerGen(c =>
