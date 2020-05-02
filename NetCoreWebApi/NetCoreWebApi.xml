@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetCoreWebApi</name>
+    </assembly>
+    <members>
+        <member name="T:NetCoreWebApi.Controllers.BookChaptersController">
+            <summary>
+            BookChaptersController
+            </summary>
+        </member>
+        <member name="M:NetCoreWebApi.Controllers.BookChaptersController.#ctor(NetCoreWebApi.Models.IBookChaptersRepository)">
+            <summary>
+            BookChaptersController
+            </summary>
+            <param name="repository"></param>
+        </member>
+        <member name="M:NetCoreWebApi.Controllers.BookChaptersController.GetBookChaptersAsync">
+            <summary>
+            GetBookChaptersAsync
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NetCoreWebApi.Controllers.BookChaptersController.GetBookChapterByIdAsync(System.Guid)">
+            <summary>
+            GetBookChapterByIdAsync
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NetCoreWebApi.Controllers.BookChaptersController.PostBookChapterAsync(NetCoreWebApi.Models.BookChapter)">
+            <summary>
+            PostBookChapterAsync
+            </summary>
+            <param name="chapter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NetCoreWebApi.Controllers.BookChaptersController.PutBookChapterAsync(System.Guid,NetCoreWebApi.Models.BookChapter)">
+            <summary>
+            PutBookChapterAsync
+            </summary>
+            <param name="id"></param>
+            <param name="chapter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NetCoreWebApi.Controllers.BookChaptersController.DeleteAsync(System.Guid)">
+            <summary>
+            DeleteAsync
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
