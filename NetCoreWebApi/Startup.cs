@@ -62,7 +62,7 @@ namespace NetCoreWebApi
             {
                 c.SwaggerEndpoint("../swagger/v1/swagger.json", "BookService API V1");
                 // the following line casue issue when you deploy api under IIS in sub application
-                //c.RoutePrefix = string.Empty;
+                // c.RoutePrefix = string.Empty;
             });
             
 
