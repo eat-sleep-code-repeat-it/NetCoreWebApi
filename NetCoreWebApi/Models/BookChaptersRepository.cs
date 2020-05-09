@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,12 @@ namespace NetCoreWebApi.Models
     public class BookChaptersRepository : IBookChaptersRepository, IDisposable
     {
         private BooksContext _booksContext;
-
-        public BookChaptersRepository(BooksContext booksContext)
+        private readonly ILogger _logger;
+        public BookChaptersRepository(BooksContext booksContext, ILoggerFactory logFactory)
         {
             _booksContext = booksContext;
+            _logger = logFactory.CreateLogger<BookChaptersRepository>();
+            _logger.LogInformation("BookChaptersRepository Constructor");
         }
 
         public void Dispose()
@@ -21,6 +24,7 @@ namespace NetCoreWebApi.Models
         }
         public async Task AddAsync(BookChapter chapter)
         {
+            _logger.LogInformation("BookChaptersRepository AddAsync");
             _booksContext.Chapters.Add(chapter);
             await _booksContext.SaveChangesAsync();
         }

@@ -35,8 +35,8 @@ namespace NetCoreWebApi
             /* methods provided by EF register it as scoped only.
                 At the end of the scope, EF will do cleanup for instance.
             */
-            // services.AddDbContext<BooksContext>(opt => opt.UseSqlite("Data Source=books.db"));
-            services.AddDbContext<BooksContext>(opt => opt.UseInMemoryDatabase("books"));
+            services.AddDbContext<BooksContext>(opt => opt.UseSqlite("Data Source=books.db"));
+            //services.AddDbContext<BooksContext>(opt => opt.UseInMemoryDatabase("books"));
             services.AddScoped<IBookChaptersRepository, BookChaptersRepository>();
 
             services.AddSwaggerGen(c =>

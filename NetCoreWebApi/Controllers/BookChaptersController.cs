@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using NetCoreWebApi.Models;
 
 namespace NetCoreWebApi.Controllers
@@ -17,14 +18,15 @@ namespace NetCoreWebApi.Controllers
     public class BookChaptersController : ControllerBase
     {
         private readonly IBookChaptersRepository _repository;
-
+        private readonly ILogger _logger;
         /// <summary>
         /// BookChaptersController
         /// </summary>
         /// <param name="repository"></param>
-        public BookChaptersController(IBookChaptersRepository repository)
+        public BookChaptersController(IBookChaptersRepository repository, ILogger<BookChaptersController> logger)
         {
             _repository = repository;
+            _logger = logger;
         }
 
         /// <summary>
@@ -33,7 +35,11 @@ namespace NetCoreWebApi.Controllers
         /// <returns></returns>
         // GET: api/bookchapters
         [HttpGet()]
-        public Task<IEnumerable<BookChapter>> GetBookChaptersAsync() => _repository.GetAllAsync();
+        public Task<IEnumerable<BookChapter>> GetBookChaptersAsync()
+        {
+            _logger.LogInformation("Retrieving book chapters.");
+            return _repository.GetAllAsync();
+        }
 
         /// <summary>
         /// GetBookChapterByIdAsync
@@ -44,6 +50,8 @@ namespace NetCoreWebApi.Controllers
         [HttpGet("{id}", Name = nameof(GetBookChapterByIdAsync))]
         public async Task<IActionResult> GetBookChapterByIdAsync(Guid id)
         {
+            string message = string.Format($"Id={0}", id);
+            _logger.LogInformation(message);
             BookChapter chapter = await _repository.FindAsync(id);
             if (chapter == null)
             {
@@ -85,10 +93,12 @@ namespace NetCoreWebApi.Controllers
         {
             if (chapter == null || id != chapter.Id)
             {
+                _logger.LogInformation("Id is misssing.");
                 return BadRequest();
             }
             if (await _repository.FindAsync(id) == null)
             {
+                _logger.LogInformation("Id is misssing.");
                 return NotFound();
             }
 

@@ -9,7 +9,7 @@
             BookChaptersController
             </summary>
         </member>
-        <member name="M:NetCoreWebApi.Controllers.BookChaptersController.#ctor(NetCoreWebApi.Models.IBookChaptersRepository)">
+        <member name="M:NetCoreWebApi.Controllers.BookChaptersController.#ctor(NetCoreWebApi.Models.IBookChaptersRepository,Microsoft.Extensions.Logging.ILogger{NetCoreWebApi.Controllers.BookChaptersController})">
             <summary>
             BookChaptersController
             </summary>
