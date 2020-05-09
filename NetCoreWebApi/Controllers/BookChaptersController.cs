@@ -50,7 +50,7 @@ namespace NetCoreWebApi.Controllers
         [HttpGet("{id}", Name = nameof(GetBookChapterByIdAsync))]
         public async Task<IActionResult> GetBookChapterByIdAsync(Guid id)
         {
-            string message = string.Format($"Id={0}", id);
+            string message = string.Format($"Id={id.ToString()}");
             _logger.LogInformation(message);
             BookChapter chapter = await _repository.FindAsync(id);
             if (chapter == null)
@@ -93,12 +93,10 @@ namespace NetCoreWebApi.Controllers
         {
             if (chapter == null || id != chapter.Id)
             {
-                _logger.LogInformation("Id is misssing.");
                 return BadRequest();
             }
             if (await _repository.FindAsync(id) == null)
             {
-                _logger.LogInformation("Id is misssing.");
                 return NotFound();
             }
 
