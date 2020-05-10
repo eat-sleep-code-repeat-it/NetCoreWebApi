@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCoreWebApi", "NetCoreWebApi\NetCoreWebApi.csproj", "{E22D9220-47F3-4D0D-B3C6-1FEA82A7FBF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreWebApiClient", "NetCoreWebApiClient\NetCoreWebApiClient.csproj", "{996A5F4B-D258-43FE-AC49-52AC760ECA94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCoreWebApiClient", "NetCoreWebApiClient\NetCoreWebApiClient.csproj", "{996A5F4B-D258-43FE-AC49-52AC760ECA94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreWebJWT", "NetCoreWebJWT\NetCoreWebJWT.csproj", "{2E175265-F8FE-4580-9508-CF04957C8CDC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{996A5F4B-D258-43FE-AC49-52AC760ECA94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{996A5F4B-D258-43FE-AC49-52AC760ECA94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{996A5F4B-D258-43FE-AC49-52AC760ECA94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E175265-F8FE-4580-9508-CF04957C8CDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E175265-F8FE-4580-9508-CF04957C8CDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E175265-F8FE-4580-9508-CF04957C8CDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E175265-F8FE-4580-9508-CF04957C8CDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
