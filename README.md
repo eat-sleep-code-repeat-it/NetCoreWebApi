@@ -7,7 +7,7 @@
 - [C# 8.0 and .NET Core 3.0, by Mark J. Price,4th Edition](https://github.com/PacktPublishing/CSharp-8.0-and-.NET-Core-3.0-Modern-Cross-Platform-Development-Fourth-Edition)
 - [C# 8.0 and .NET Core 3.1, by Mark J. Price Repo](https://github.com/markjprice/cs8dotnetcore3)
 - [C# 8 and .NET Core 3.0 New Features](https://github.com/PacktPublishing/C-8-and-.NET-Core-3.0-New-Features)
-
+- [Routing in ASP.NET Core 3.1](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcore-3.1)
 ## EntityFramework with SQLite
 
 ### EF for SqlLite 
@@ -17,8 +17,11 @@ dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
 
-## OData
+## endpoint routing and OData
 
+- ? https://devblogs.microsoft.com/odata/enabling-endpoint-routing-in-odata/
+- [endpoint route resolution middleware V.S MVC middleware](https://aregcode.com/blog/2019/dotnetcore-understanding-aspnet-endpoint-routing/
+- https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcore-3.1
 ```bash
 api/odata
 api/$metadata#odata
