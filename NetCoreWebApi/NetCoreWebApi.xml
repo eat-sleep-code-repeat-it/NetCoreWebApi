@@ -50,5 +50,16 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="T:NetCoreWebApi.Controllers.ODataController">
+            <summary>
+            ODataController
+            </summary>
+        </member>
+        <member name="M:NetCoreWebApi.Controllers.ODataController.#ctor(NetCoreWebApi.Models.BooksContext)">
+            <summary>
+            BooksController
+            </summary>
+            <param name="repository"></param>
+        </member>
     </members>
 </doc>

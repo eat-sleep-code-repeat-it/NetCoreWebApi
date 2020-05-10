@@ -15,6 +15,13 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using NetCoreWebApi.Models;
+using Microsoft.AspNet.OData.Builder;
+using Microsoft.AspNet.OData.Extensions;
+using Microsoft.OData.Edm;
+using Microsoft.Net.Http.Headers;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.AspNet.OData.Routing.Conventions;
+using Microsoft.AspNet.OData.Routing;
 
 namespace NetCoreWebApi
 {
@@ -30,6 +37,7 @@ namespace NetCoreWebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddOData();
             services.AddControllers();
 
             /* methods provided by EF register it as scoped only.
@@ -48,6 +56,20 @@ namespace NetCoreWebApi
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
             });
+
+            // swagger won't work with OData without the following
+            services.AddMvcCore(options =>
+            {
+                foreach (var outputFormatter in options.OutputFormatters.OfType<OutputFormatter>().Where(x => x.SupportedMediaTypes.Count == 0))
+                {
+                    outputFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/prs.odatatestxx-odata"));
+                }
+
+                foreach (var inputFormatter in options.InputFormatters.OfType<InputFormatter>().Where(x => x.SupportedMediaTypes.Count == 0))
+                {
+                    inputFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/prs.odatatestxx-odata"));
+                }
+            });            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -77,10 +99,25 @@ namespace NetCoreWebApi
 
             app.UseAuthorization();
 
+            var builder = new ODataConventionModelBuilder();
+            builder.EntitySet<BookChapter>("BookChapters");
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.Select().Filter().OrderBy().Expand().Count().MaxTop(50);
+                endpoints.MapODataRoute("api", "api", GetEdmModel());
+                endpoints.EnableDependencyInjection();
             });
+
+            
+        }
+
+        private IEdmModel GetEdmModel()
+        {
+            var builder = new ODataConventionModelBuilder();
+            builder.EntitySet<BookChapter>("BookChapters");
+            return builder.GetEdmModel();
         }
     }
 }

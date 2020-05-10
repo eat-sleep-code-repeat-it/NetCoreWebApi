@@ -17,6 +17,13 @@ dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
 
+## OData
+
+```bash
+api/odata
+api/$metadata#odata
+```
+
 ## BookServiceApi Client
 
 - https://docs.microsoft.com/en-us/dotnet/architecture/microservices/
