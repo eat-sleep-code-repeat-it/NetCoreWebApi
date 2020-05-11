@@ -71,12 +71,13 @@ namespace NetCoreWebApi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
-
-            app.UseRouting();
-
+            app.UseHttpsRedirection();          
             app.UseAuthorization();
 
+            // Routing is registered in the middleware pipeline in Startup.Configure
+            // 1. adds route matching to the middleware pipeline
+            app.UseRouting();
+            // 2. adds endpoint execution to the middleware pipeline
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

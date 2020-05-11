@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -71,20 +72,37 @@ namespace NetCoreWebJWT
             }
 
             app.UseHttpsRedirection();
-
-            app.UseRouting();
-
+                        
             app.UseCors(x =>
                 x.AllowAnyOrigin()
                  .AllowAnyMethod()
                  .AllowAnyHeader()
             );
+            
+
+            // Matches request to an endpoint.
+            app.UseRouting();
+
+            // Endpoint aware middleware. 
+            // Middleware can use metadata from the matched endpoint.
             app.UseAuthentication();
             app.UseAuthorization();
 
+            // Matches request to an endpoint.
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+
+                // Configure the Health Check endpoint and require an authorized user.
+                endpoints.MapHealthChecks("/healthz").RequireAuthorization();
+
+                // define an endpoint
+                // - Selected, by matching the URL and HTTP method.
+                // - Executed, by running the delegate
+                endpoints.MapGet("/", async context =>
+                {
+                    await context.Response.WriteAsync("Hello World!");
+                });
             });
         }
     }
