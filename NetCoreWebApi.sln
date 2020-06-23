@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCoreWebApiClient", "NetC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCoreWebJWT", "NetCoreWebJWT\NetCoreWebJWT.csproj", "{2E175265-F8FE-4580-9508-CF04957C8CDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAuroraMySQLEF", "ConsoleAuroraMySQLEF\ConsoleAuroraMySQLEF.csproj", "{9A47EDA6-BC5D-4EFF-8409-0F5F38A90756}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAuroraMySQLEF", "ConsoleAuroraMySQLEF\ConsoleAuroraMySQLEF.csproj", "{9A47EDA6-BC5D-4EFF-8409-0F5F38A90756}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatternConsole", "DesignPatternConsole\DesignPatternConsole.csproj", "{BB7519D7-E859-4474-9DEB-73924E8F6E34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{9A47EDA6-BC5D-4EFF-8409-0F5F38A90756}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A47EDA6-BC5D-4EFF-8409-0F5F38A90756}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A47EDA6-BC5D-4EFF-8409-0F5F38A90756}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB7519D7-E859-4474-9DEB-73924E8F6E34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB7519D7-E859-4474-9DEB-73924E8F6E34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB7519D7-E859-4474-9DEB-73924E8F6E34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB7519D7-E859-4474-9DEB-73924E8F6E34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
